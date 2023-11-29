@@ -33,7 +33,10 @@ function Notepad(props) {
       <p className="mt-1 mb-4">
         There are still {titleCharacterLimit - title.length} characters left.
       </p>
-      <NotepadBody onChange={(event) => setBody(event.target.value)} />
+      <NotepadBody
+        onChange={(event) => setBody(event.target.value)}
+        value={body}
+      />
       <button className=" p-2 px-4 mt-2 text-white bg-sky-600 rounded">
         Save
       </button>
