@@ -1,12 +1,12 @@
-import Header from "../../components/header/Header";
 import Notes from "../../components/notes/Notes";
 import NotepadTitle from "../../components/notepad/NotepadTitle";
-
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 
-function Home({ data }) {
-  const [notes, setNotes] = useState(data);
+function Archived({ data }) {
+  const location = useLocation();
+  const [notes, setNotes] = useState(data || location.state.notes);
   const [query, setQuery] = useState("");
 
   const titleCharacterLimit = 50;
@@ -26,7 +26,6 @@ function Home({ data }) {
   return (
     <>
       <Navbar notes={notes} />
-      <Header />
       <main>
         <section>
           <div className="container max-w-screen-md mx-auto mt-8 mb-4">
@@ -45,7 +44,7 @@ function Home({ data }) {
             <Notes
               data={notes.filter(
                 (note) =>
-                  new RegExp(query, "i").test(note.title) && !note.archived,
+                  new RegExp(query, "i").test(note.title) && note.archived,
               )}
               toggleNoteArchive={toggleNoteArchive}
               deleteNote={deleteNote}
@@ -57,4 +56,4 @@ function Home({ data }) {
   );
 }
 
-export default Home;
+export default Archived;
