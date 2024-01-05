@@ -3,6 +3,7 @@ import Notes from "../../components/notes/Notes";
 import NotepadTitle from "../../components/notepad/NotepadTitle";
 
 import { useState } from "react";
+import Navbar from "../../components/navbar/Navbar";
 
 function Home({ data }) {
   const [notes, setNotes] = useState(data);
@@ -24,6 +25,7 @@ function Home({ data }) {
 
   return (
     <>
+      <Navbar notes={notes} />
       <Header />
       <main>
         <section>
