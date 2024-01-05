@@ -2,6 +2,7 @@ import Notes from "../../components/notes/Notes";
 import NotepadTitle from "../../components/notepad/NotepadTitle";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../../components/navbar/Navbar";
 
 function Archived({ data }) {
   const location = useLocation();
@@ -24,6 +25,7 @@ function Archived({ data }) {
 
   return (
     <>
+      <Navbar notes={notes} />
       <main>
         <section>
           <div className="container max-w-screen-md mx-auto mt-8 mb-4">
