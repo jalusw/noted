@@ -14,8 +14,8 @@ function App() {
   const toggleNoteArchive = (target) => {
     setNotes(
       notes.map((note) =>
-        note.id === target.id ? { ...note, archived: !note.archived } : note
-      )
+        note.id === target.id ? { ...note, archived: !note.archived } : note,
+      ),
     );
   };
 
@@ -60,7 +60,7 @@ function App() {
             <Notes
               data={notes.filter(
                 (note) =>
-                  new RegExp(query, "i").test(note.title) && !note.archived
+                  new RegExp(query, "i").test(note.title) && !note.archived,
               )}
               toggleNoteArchive={toggleNoteArchive}
               deleteNote={deleteNote}
@@ -75,7 +75,7 @@ function App() {
             <Notes
               data={notes.filter(
                 (note) =>
-                  new RegExp(query, "i").test(note.title) && note.archived
+                  new RegExp(query, "i").test(note.title) && note.archived,
               )}
               toggleNoteArchive={toggleNoteArchive}
               deleteNote={deleteNote}
