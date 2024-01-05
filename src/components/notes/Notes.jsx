@@ -1,20 +1,18 @@
 import Note from "../note/Note";
-function Notes(props) {
-  const { data: notes, toggleNoteArchive, deleteNote } = props;
+import EmptyNotesMessage from "./EmptyNotesMessage";
+
+function Notes({ data: notes, toggleNoteArchive, deleteNote }) {
+  if (notes.length === 0) return <EmptyNotesMessage />;
   return (
     <div>
-      {notes.length === 0 ? (
-        <p>You currently do not have any notes.</p>
-      ) : (
-        notes.map((note) => (
-          <Note
-            key={note.id}
-            data={note}
-            toggleNoteArchive={toggleNoteArchive}
-            deleteNote={deleteNote}
-          />
-        ))
-      )}
+      {notes.map((note) => (
+        <Note
+          key={note.id}
+          data={note}
+          toggleNoteArchive={toggleNoteArchive}
+          deleteNote={deleteNote}
+        />
+      ))}
     </div>
   );
 }
