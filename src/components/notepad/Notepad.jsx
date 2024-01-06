@@ -49,7 +49,7 @@ function Notepad() {
         />
       </section>
       <Button variant="primary" className=" mt-8 flex items-center space-x-2">
-        <SaveIcon />
+        <SaveIcon color="white" />
         <span>Save</span>
       </Button>
     </form>
