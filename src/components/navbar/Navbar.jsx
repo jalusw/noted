@@ -6,7 +6,7 @@ import PencilIcon from "../icons/PencilIcon";
 function Navbar({ notes }) {
   return (
     <nav className="py-4 bg-sky-500">
-      <div className="container max-w-screen-md mx-auto">
+      <div className="container max-w-screen-lg mx-auto">
         <div className="flex items-center justify-between">
           <Link className="font-bold text-xl text-white" to={"/"}>
             Noted.
@@ -23,7 +23,11 @@ function Navbar({ notes }) {
               </Link>
             </li>
             <li>
-              <Link className="text-white" to={"/write"} state={{ notes }}>
+              <Link
+                className="text-white"
+                to={"/note/create"}
+                state={{ notes }}
+              >
                 <PencilIcon color="white" />
               </Link>
             </li>
