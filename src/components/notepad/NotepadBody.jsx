@@ -1,11 +1,15 @@
 function NotepadBody(props) {
   return (
-    <textarea
-      className="w-full p-2 border-2 rounded"
-      placeholder={props.placeholder || "Write Something..."}
-      onChange={props.onChange}
-      value={props.value}
-    ></textarea>
+    <div
+      className="w-full outline-0 "
+      data-placeholder="Write Your Notes Here.."
+      contentEditable="true"
+      role="textbox"
+      suppressContentEditableWarning={true}
+      onInput={props.onChange}
+    >
+      Write Something....
+    </div>
   );
 }
 export default NotepadBody;

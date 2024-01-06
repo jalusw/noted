@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { titleCharacterLimit } from "../../utils/constants";
 import NotepadBody from "./NotepadBody";
 import NotepadTitle from "./NotepadTitle";
+import SaveIcon from "../icons/SaveIcon";
+import { addNote } from "../../utils/local-data";
 
 function Notepad(props) {
-  const titleCharacterLimit = props.titleCharacterLimit || 50;
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
@@ -18,27 +20,29 @@ function Notepad(props) {
       createdAt: new Date().toISOString(),
     };
 
-    props.insertNote(note);
+    addNote(note);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <NotepadTitle
-        onChange={(event) =>
-          event.target.value.length <= titleCharacterLimit &&
-          setTitle(event.target.value)
-        }
-        value={title}
-      />
-      <p className="mt-1 mb-4">
-        There are still {titleCharacterLimit - title.length} characters left.
-      </p>
-      <NotepadBody
-        onChange={(event) => setBody(event.target.value)}
-        value={body}
-      />
-      <button className=" p-2 px-4 mt-2 text-white bg-sky-600 rounded">
-        Save
+    <form className="shadow-border p-8" onSubmit={submitHandler}>
+      <section>
+        <NotepadTitle
+          onChange={(event) =>
+            event.target.value.length <= titleCharacterLimit &&
+            setTitle(event.target.value)
+          }
+          value={title}
+        />
+      </section>
+      <section>
+        <NotepadBody
+          onChange={(event) => setBody(event.target.innerHTML)}
+          value={body}
+        />
+      </section>
+      <button className="p-2 px-4 mt-8 flex items-center space-x-2 text-white bg-sky-600 rounded">
+        <SaveIcon />
+        <span>Save</span>
       </button>
     </form>
   );

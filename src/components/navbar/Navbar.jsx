@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import ArchiveIcon from "../icons/ArchiveIcon";
 import HomeIcon from "../icons/HomeIcon";
+import PencilIcon from "../icons/PencilIcon";
 
 function Navbar({ notes }) {
   return (
@@ -19,6 +20,11 @@ function Navbar({ notes }) {
             <li>
               <Link className="text-white" to={"/archived"} state={{ notes }}>
                 <ArchiveIcon color="white" />
+              </Link>
+            </li>
+            <li>
+              <Link className="text-white" to={"/write"} state={{ notes }}>
+                <PencilIcon color="white" />
               </Link>
             </li>
           </ul>
