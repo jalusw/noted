@@ -1,7 +1,21 @@
 import { showFormattedDate } from "../../utils";
+import { archiveNote, deleteNote, unarchiveNote } from "../../utils/local-data";
 
-function Note(props) {
-  const { data: note, toggleNoteArchive, deleteNote } = props;
+function Note({ note, refresh }) {
+  const toggleArchiveButtonClickHandler = () => {
+    if (note.archived) {
+      unarchiveNote(note.id);
+      refresh();
+      return;
+    }
+    archiveNote(note.id);
+    refresh();
+  };
+
+  const deleteButtonClickHandler = () => {
+    deleteNote(note.id);
+    refresh();
+  };
   return (
     <article>
       <div className="prose">
@@ -17,7 +31,7 @@ function Note(props) {
             className="p-2 border-2 border-slate-600 rounded  "
             type="button"
             title={note.archived ? "unarchive this note" : "archive this note"}
-            onClick={() => toggleNoteArchive(note)}
+            onClick={toggleArchiveButtonClickHandler}
           >
             {note.archived ? (
               <svg
@@ -42,7 +56,7 @@ function Note(props) {
           <button
             className="p-2 border-2 border-slate-600 rounded  "
             type="button"
-            onClick={() => deleteNote(note)}
+            onClick={() => deleteButtonClickHandler(note)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
