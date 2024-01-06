@@ -41,6 +41,11 @@ function Search() {
           </Container>
         </section>
         <section>
+          {notes.length === 0 && (
+            <p className="text-center mt-16">
+              The notes you're seeking are currently not within our scope!
+            </p>
+          )}
           <Container size="md">
             <Notes notes={notes} refresh={updateNotes} />
           </Container>
