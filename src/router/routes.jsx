@@ -1,6 +1,7 @@
 import Archived from "../pages/archived/Archived";
 import Home from "../pages/home/Home";
 import NotFoundError from "../pages/errors/404/NotFoundError.jsx";
+import Write from "../pages/write/Write.jsx";
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: "/archived",
     element: <Archived />,
+  },
+  {
+    path: "/write",
+    element: <Write />,
   },
   {
     path: "/*",
