@@ -1,11 +1,12 @@
 function NotepadTitle(props) {
+  const { placeholder, onChange, value } = props;
   return (
     <textarea
       className="w-full text-3xl font-bold  outline-0 resize-none "
       rows={1}
-      placeholder={props.placeholder || "Title..."}
-      onChange={props.onChange}
-      value={props.value}
+      placeholder={placeholder || "Title..."}
+      onChange={onChange}
+      value={value}
     ></textarea>
   );
 }

@@ -1,6 +1,7 @@
 import Note from "../note/Note";
 
-function Notes({ notes, refresh }) {
+function Notes(props) {
+  const { notes, refresh } = props;
   return notes.map((note) => (
     <Note key={note.id} note={note} refresh={refresh} />
   ));

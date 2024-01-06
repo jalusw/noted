@@ -1,46 +1,31 @@
 import Header from "../../components/header/Header";
 import Notes from "../../components/notes/Notes";
-import NotepadTitle from "../../components/notepad/NotepadTitle";
 
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import { getActiveNotes } from "../../utils/local-data";
-import { titleCharacterLimit } from "../../utils/constants.js";
+import Container from "../../components/container/Container";
 
 function Home() {
   const notesSource = getActiveNotes();
   const [notes, setNotes] = useState(notesSource);
-  const [query, setQuery] = useState("");
 
   const updateNotes = () => setNotes(getActiveNotes());
 
   return (
     <>
       <Navbar notes={notes} />
-      <Header />
+      <Header backgroundColor="primary">
+        <h1 className="text-white mb-0">Noted.</h1>
+        <p className="text-white">
+          Taking notes: because our brains are like leaky buckets, and even
+          elephants forget where they left their peanuts!
+        </p>
+      </Header>
       <main>
-        <section>
-          <div className="container max-w-screen-md mx-auto mt-8 mb-4">
-            <NotepadTitle
-              placeholder="Search A Note"
-              onChange={(event) => {
-                event.target.value.length <= titleCharacterLimit &&
-                  setQuery(event.target.value);
-              }}
-              value={query}
-            />
-          </div>
-        </section>
-        <section>
-          <div className="container max-w-screen-md mx-auto">
-            <Notes
-              notes={notes.filter((note) =>
-                new RegExp(query, "i").test(note.title),
-              )}
-              refresh={updateNotes}
-            />
-          </div>
-        </section>
+        <Container size="md">
+          <Notes notes={notes} refresh={updateNotes} />
+        </Container>
       </main>
     </>
   );
