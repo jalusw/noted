@@ -9,19 +9,18 @@ import Input from "../../components/input/Input";
 function Search() {
   const notesSource = getAllNotes();
   let [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("q") || "");
+
   const filterNotes = (query, notes) =>
     notes.filter((note) => new RegExp(query, "i").test(note.title));
 
-  const [notes, setNotes] = useState(
-    filterNotes(searchParams.get("q") || "", notesSource),
-  );
+  const [notes, setNotes] = useState(filterNotes(query, notesSource));
 
-  const updateNotes = () =>
-    setNotes(filterNotes(searchParams.get("q") || "", notesSource));
+  const updateNotes = () => setNotes(getAllNotes());
 
   const searchChangeHandler = (event) => {
+    setQuery(event.target.value);
     setSearchParams(`q=${event.target.value}`);
-    updateNotes();
   };
 
   return (
@@ -36,6 +35,7 @@ function Search() {
                 type="text"
                 placeholder="Search Something.."
                 onChange={searchChangeHandler}
+                value={query}
               />
             </form>
           </Container>
@@ -43,11 +43,11 @@ function Search() {
         <section>
           {notes.length === 0 && (
             <p className="text-center mt-16">
-              The notes you're seeking are currently not within our scope!
+              The notes you&apos;re seeking are currently not within our scope!
             </p>
           )}
           <Container size="md">
-            <Notes notes={notes} refresh={updateNotes} />
+            <Notes notes={filterNotes(query, notes)} refresh={updateNotes} />
           </Container>
         </section>
       </main>
