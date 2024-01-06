@@ -1,8 +1,7 @@
 import Navbar from "../../components/navbar/Navbar";
-import NotepadTitle from "../../components/notepad/NotepadTitle";
 import Notepad from "../../components/notepad/Notepad";
 
-function Write() {
+function CreateNote() {
   return (
     <>
       <Navbar />
@@ -14,4 +13,4 @@ function Write() {
     </>
   );
 }
-export default Write;
+export default CreateNote;
