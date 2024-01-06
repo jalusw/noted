@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 function Input(props) {
-  const { type, onChange, placeholder } = props;
+  const { type, onChange, value, placeholder } = props;
 
   return (
     <input
@@ -9,6 +9,7 @@ function Input(props) {
       type={type}
       placeholder={placeholder}
       onChange={onChange}
+      value={value}
     />
   );
 }
@@ -16,6 +17,7 @@ function Input(props) {
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
 };
 
