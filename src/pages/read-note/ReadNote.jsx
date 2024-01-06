@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom";
 import { getNote } from "../../utils/local-data";
-import Navbar from "../../components/navbar/Navbar";
-import parse from "html-react-parser";
 import { showFormattedDate } from "../../utils";
+import parse from "html-react-parser";
+import Navbar from "../../components/navbar/Navbar";
+import NotFoundError from "../errors/404/NotFoundError";
 
 function ReadNote(props) {
   const { id } = useParams();
   const note = getNote(id);
+  if (note === undefined) return <NotFoundError />;
   return (
     <>
       <Navbar />
