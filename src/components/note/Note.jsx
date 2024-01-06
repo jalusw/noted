@@ -1,5 +1,6 @@
 import { showFormattedDate } from "../../utils";
 import { archiveNote, deleteNote, unarchiveNote } from "../../utils/local-data";
+import { Link } from "react-router-dom";
 
 function Note({ note, refresh }) {
   const toggleArchiveButtonClickHandler = () => {
@@ -20,7 +21,11 @@ function Note({ note, refresh }) {
     <article>
       <div className="prose">
         <header>
-          <h3>{note.title}</h3>
+          <h3>
+            <Link className="font-bold no-underline" to={`/note/${note.id}`}>
+              {note.title}
+            </Link>
+          </h3>
           <time>{showFormattedDate(note.createdAt)}</time>
         </header>
         <section>
