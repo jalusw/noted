@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import ArchiveIcon from "../icons/ArchiveIcon";
+import HomeIcon from "../icons/HomeIcon";
+
 function Navbar({ notes }) {
   return (
     <nav className="py-4 bg-sky-500">
@@ -10,12 +13,12 @@ function Navbar({ notes }) {
           <ul className="flex items-center space-x-4">
             <li>
               <Link className="text-white" to={"/"} state={{ notes }}>
-                Home
+                <HomeIcon color="white" />
               </Link>
             </li>
             <li>
               <Link className="text-white" to={"/archived"} state={{ notes }}>
-                Archived
+                <ArchiveIcon color="white" />
               </Link>
             </li>
           </ul>
