@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Note from "../note/Note";
 
 function Notes(props) {
@@ -6,4 +7,9 @@ function Notes(props) {
     <Note key={note.id} note={note} refresh={refresh} />
   ));
 }
+Notes.propTypes = {
+  notes: PropTypes.array.isRequired,
+  refresh: PropTypes.func.isRequired,
+};
+
 export default Notes;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function NotepadBody(props) {
   const { onChange } = props;
   return (
@@ -13,4 +15,10 @@ function NotepadBody(props) {
     </div>
   );
 }
+
+NotepadBody.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
+
 export default NotepadBody;

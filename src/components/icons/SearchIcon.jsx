@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function SearchIcon(props) {
   const colors = {
     white: "#fff",
@@ -16,4 +18,9 @@ function SearchIcon(props) {
     </svg>
   );
 }
+
+SearchIcon.propTypes = {
+  color: PropTypes.oneOf(["white", "black"]),
+};
+
 export default SearchIcon;

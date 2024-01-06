@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Button(props) {
   const {
     variant = "default",
@@ -23,5 +25,14 @@ function Button(props) {
     </button>
   );
 }
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(["primary", "default", "bordered"]),
+  type: PropTypes.string,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default Button;

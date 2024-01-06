@@ -10,4 +10,5 @@ function TrashIcon() {
     </svg>
   );
 }
+
 export default TrashIcon;

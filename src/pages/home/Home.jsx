@@ -24,6 +24,11 @@ function Home() {
       </Header>
       <main>
         <Container size="md">
+          {notes.length === 0 && (
+            <p className="text-center mt-16">
+              No active notes on the radar at the moment!
+            </p>
+          )}
           <Notes notes={notes} refresh={updateNotes} />
         </Container>
       </main>

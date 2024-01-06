@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function NotepadTitle(props) {
   const { placeholder, onChange, value } = props;
   return (
@@ -10,4 +12,11 @@ function NotepadTitle(props) {
     ></textarea>
   );
 }
+
+NotepadTitle.propTypes = {
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
+
 export default NotepadTitle;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function PencilIcon(props) {
   const colors = {
     white: "#fff",
@@ -17,5 +19,9 @@ function PencilIcon(props) {
     </svg>
   );
 }
+
+PencilIcon.propTypes = {
+  color: PropTypes.oneOf(["white", "dark"]),
+};
 
 export default PencilIcon;
