@@ -1,6 +1,7 @@
 import { showFormattedDate } from "../../utils";
 import { archiveNote, deleteNote, unarchiveNote } from "../../utils/local-data";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 import ArchiveIcon from "../icons/ArchiveIcon";
 import UnArchiveIcon from "../icons/UnArchiveIcon";
 import TrashIcon from "../icons/TrashIcon";
@@ -34,7 +35,7 @@ function Note(props) {
           <time>{showFormattedDate(note.createdAt)}</time>
         </header>
         <section>
-          <p>{note.body}</p>
+          <p>{parse(note.body)}</p>
         </section>
         <footer className="space-x-4">
           <Button

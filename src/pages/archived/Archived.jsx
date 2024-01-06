@@ -16,6 +16,11 @@ function Archived() {
       <main>
         <section>
           <Container size="md">
+            {notes.length === 0 && (
+              <p className="text-center mt-16">
+                No archive notes on the radar at the moment!
+              </p>
+            )}
             <Notes notes={notes} refresh={updateNotes} />
           </Container>
         </section>

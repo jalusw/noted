@@ -19,7 +19,7 @@ function ReadNote() {
         <time>{showFormattedDate(note.createdAt)}</time>
       </Header>
       <main>
-        <Container>
+        <Container size="md">
           <div className="prose">{parse(note.body)}</div>
         </Container>
       </main>
