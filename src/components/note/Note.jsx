@@ -1,6 +1,7 @@
 import { showFormattedDate } from "../../utils";
 import { archiveNote, deleteNote, unarchiveNote } from "../../utils/local-data";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import parse from "html-react-parser";
 import ArchiveIcon from "../icons/ArchiveIcon";
 import UnArchiveIcon from "../icons/UnArchiveIcon";
@@ -58,4 +59,15 @@ function Note(props) {
     </article>
   );
 }
+Note.propTypes = {
+  note: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    archived: PropTypes.bool.isRequired,
+  }).isRequired,
+  refresh: PropTypes.func.isRequired,
+};
+
 export default Note;

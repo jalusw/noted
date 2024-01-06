@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function HomeIcon(props) {
   const colors = {
     white: "#fff",
@@ -16,4 +18,9 @@ function HomeIcon(props) {
     </svg>
   );
 }
+
+HomeIcon.propTypes = {
+  color: PropTypes.oneOf(["white", "black"]),
+};
+
 export default HomeIcon;

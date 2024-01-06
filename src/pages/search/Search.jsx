@@ -3,22 +3,17 @@ import Navbar from "../../components/navbar/Navbar";
 import { getAllNotes } from "../../utils/local-data";
 import { useSearchParams } from "react-router-dom";
 import Notes from "../../components/notes/Notes";
-import SearchIcon from "../../components/icons/SearchIcon";
 import Container from "../../components/container/Container";
 import Input from "../../components/input/Input";
-import Button from "../../components/button/Button";
 
 function Search() {
   const notesSource = getAllNotes();
   let [searchParams, setSearchParams] = useSearchParams();
-
   const filterNotes = (query, notes) =>
     notes.filter((note) => new RegExp(query, "i").test(note.title));
 
-  console.log(filterNotes(searchParams.get("q"), notesSource));
-
   const [notes, setNotes] = useState(
-    filterNotes(searchParams.get("q") || "", getAllNotes()),
+    filterNotes(searchParams.get("q") || "", notesSource),
   );
 
   const updateNotes = () =>

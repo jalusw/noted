@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function ArchiveIcon(props) {
   const colors = {
     white: "#fff",
@@ -18,5 +20,9 @@ function ArchiveIcon(props) {
     </svg>
   );
 }
+
+ArchiveIcon.propTypes = {
+  color: PropTypes.oneOf(["white", "black"]),
+};
 
 export default ArchiveIcon;

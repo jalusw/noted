@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Header(props) {
   const { backgroundColor = "none", textDirection = "left", children } = props;
   const backgroundColors = {
@@ -19,5 +21,11 @@ function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  backgroundColor: PropTypes.oneOf(["none", "primary"]),
+  textDirection: PropTypes.oneOf(["left", "right", "center"]),
+  children: PropTypes.node,
+};
 
 export default Header;

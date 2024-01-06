@@ -5,8 +5,7 @@ import PencilIcon from "../icons/PencilIcon";
 import SearchIcon from "../icons/SearchIcon";
 import Container from "../container/Container";
 
-function Navbar(props) {
-  const { notes } = props;
+function Navbar() {
   return (
     <nav className="py-4 bg-sky-500">
       <Container size="md">
@@ -16,26 +15,22 @@ function Navbar(props) {
           </Link>
           <ul className="flex items-center space-x-5">
             <li>
-              <Link className="text-white" to={"/"} state={{ notes }}>
+              <Link className="text-white" to={"/"}>
                 <HomeIcon color="white" />
               </Link>
             </li>
             <li>
-              <Link className="text-white" to={"/archived"} state={{ notes }}>
+              <Link className="text-white" to={"/archived"}>
                 <ArchiveIcon color="white" />
               </Link>
             </li>
             <li>
-              <Link
-                className="text-white"
-                to={"/note/create"}
-                state={{ notes }}
-              >
+              <Link className="text-white" to={"/note/create"}>
                 <PencilIcon color="white" />
               </Link>
             </li>
             <li>
-              <Link className="text-white" to={"/search"} state={{ notes }}>
+              <Link className="text-white" to={"/search"}>
                 <SearchIcon color="white" />
               </Link>
             </li>
@@ -45,4 +40,5 @@ function Navbar(props) {
     </nav>
   );
 }
+
 export default Navbar;

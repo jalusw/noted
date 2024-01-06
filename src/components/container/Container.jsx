@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Container(props) {
   const { size, children } = props;
   const sizes = {
@@ -8,5 +10,10 @@ function Container(props) {
   const className = "container mx-auto " + (sizes[size] || sizes.sm);
   return <div className={className}>{children}</div>;
 }
+
+Container.propTypes = {
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
+  children: PropTypes.node,
+};
 
 export default Container;

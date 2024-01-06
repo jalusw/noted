@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Input(props) {
   const { type, onChange, placeholder } = props;
 
@@ -10,5 +12,11 @@ function Input(props) {
     />
   );
 }
+
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+};
 
 export default Input;

@@ -11,9 +11,9 @@ function NotFoundError() {
             Not Found
           </strong>
           <p>
-            Uh Oh! Looks like you took a wrong turn. The page you're looking for
-            is playing hide and seek. Let's get you back on track – hit the back
-            button or navigate to a different page. 🚀
+            Uh Oh! Looks like you took a wrong turn. The page you&apos;re
+            looking for is playing hide and seek. Let&apos;s get you back on
+            track – hit the back button or navigate to a different page. 🚀
           </p>
         </div>
       </main>
