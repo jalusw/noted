@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import NotFoundError from "../pages/errors/404/NotFoundError.jsx";
 import CreateNote from "../pages/create-note/CreateNote.jsx";
 import ReadNote from "../pages/read-note/ReadNote.jsx";
+import Search from "../pages/search/Search.jsx";
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: "/note/:id",
     element: <ReadNote />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
   {
     path: "/*",

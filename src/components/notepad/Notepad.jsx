@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { titleCharacterLimit } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 import NotepadBody from "./NotepadBody";
 import NotepadTitle from "./NotepadTitle";
 import SaveIcon from "../icons/SaveIcon";
 import { addNote } from "../../utils/local-data";
+import Button from "../button/Button";
 
-function Notepad(props) {
+function Notepad() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
+  const validateInput = () => title.trim().length > 0;
+
   const submitHandler = (event) => {
     event.preventDefault();
+
+    if (!validateInput()) return;
 
     const note = {
       id: +new Date(),
@@ -21,10 +28,11 @@ function Notepad(props) {
     };
 
     addNote(note);
+    navigate("/");
   };
 
   return (
-    <form className="shadow-border p-8" onSubmit={submitHandler}>
+    <form className="shadow-border p-6 rounded" onSubmit={submitHandler}>
       <section>
         <NotepadTitle
           onChange={(event) =>
@@ -40,10 +48,10 @@ function Notepad(props) {
           value={body}
         />
       </section>
-      <button className="p-2 px-4 mt-8 flex items-center space-x-2 text-white bg-sky-600 rounded">
+      <Button variant="primary" className=" mt-8 flex items-center space-x-2">
         <SaveIcon />
         <span>Save</span>
-      </button>
+      </Button>
     </form>
   );
 }

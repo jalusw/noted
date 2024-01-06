@@ -1,4 +1,5 @@
 function NotepadBody(props) {
+  const { onChange } = props;
   return (
     <div
       className="w-full outline-0 "
@@ -6,7 +7,7 @@ function NotepadBody(props) {
       contentEditable="true"
       role="textbox"
       suppressContentEditableWarning={true}
-      onInput={props.onChange}
+      onInput={onChange}
     >
       Write Something....
     </div>
