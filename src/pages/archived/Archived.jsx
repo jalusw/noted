@@ -9,7 +9,7 @@ function Archived() {
   const [notes, setNotes] = useState(notesSource);
   const [query, setQuery] = useState("");
 
-  const updateNotes = () => setNotes(getActiveNotes());
+  const updateNotes = () => setNotes(getArchivedNotes());
 
   return (
     <>
